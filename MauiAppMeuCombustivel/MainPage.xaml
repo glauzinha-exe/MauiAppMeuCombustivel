@@ -3,25 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMeuCombustivel.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+    <!-- adicionando grid para definir colunas-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <Label Text="Preço do etanol"/>
-            <Entry x:Name= "txt_etanol" Placeholder="R$"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <Label Text="preço do etanol"/>
-            <Entry x:Name= "txt_gasolina" Placeholder="R$"/>
+  
+        <Button Text="Tema"
+                WidthRequest="100" 
+                HeightRequest="40" 
+                HorizontalOptions="End" 
+                VerticalOptions="Start"
+                Clicked="MudarTema" />
 
-            <Button Text="Qual compensa mais?" Clicked="Button_Clicked"/>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="30,0" Spacing="25">
+                
+                <!--label com identificacao -->
+                <Label Text="Calculadora de Combustivel"
+                   FontSize="32"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="#9880e5" />
+                
+                <Image Source="dotnet_bot.png"
+                       HeightRequest="185"
+                       Aspect="AspectFit"
+                       SemanticProperties.Description="dot net bot in a race car number eight" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+                <!--adicao dos campos de entrada marca e modelo -->
+                <Label Text="Marca do Veículo"/>
+                <Entry x:Name="txt_marca" Placeholder="Marca"/>
 
+                <Label Text="Modelo do Veículo"/>
+                <Entry x:Name="txt_modelo" Placeholder="Modelo"/>
+
+                <Label Text="Preço do etanol"/>
+                <Entry x:Name="txt_etanol" Placeholder="R$"/>
+
+                <Label Text="Preço da gasolina"/>
+                <Entry x:Name="txt_gasolina" Placeholder="R$"/>
+
+                <Button Text="Qual compensa mais?" Clicked="Button_Clicked"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
